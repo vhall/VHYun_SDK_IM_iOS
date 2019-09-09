@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C00FABB1232654C000028327 /* VHCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C03276C12302929A0006939E /* VHCore.framework */; };
+		C00FABB2232654FB00028327 /* VHCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C03276C12302929A0006939E /* VHCore.framework */; };
+		C00FABB3232654FB00028327 /* VHCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C03276C12302929A0006939E /* VHCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C017B7DE22F173D900A103EC /* UIImage+WebP.m in Sources */ = {isa = PBXBuildFile; fileRef = C017B7BD22F173D900A103EC /* UIImage+WebP.m */; };
 		C017B7DF22F173D900A103EC /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = C017B7BE22F173D900A103EC /* MKAnnotationView+WebCache.m */; };
 		C017B7E022F173D900A103EC /* SDWebImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C017B7C122F173D900A103EC /* SDWebImageManager.m */; };
@@ -25,8 +28,6 @@
 		C017B7ED22F173D900A103EC /* UIButton+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = C017B7DC22F173D900A103EC /* UIButton+WebCache.m */; };
 		C017B7F222F173F600A103EC /* IMViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C017B7F022F173F600A103EC /* IMViewController.xib */; };
 		C017B7F322F173F600A103EC /* IMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C017B7F122F173F600A103EC /* IMViewController.m */; };
-		C03276C32302929A0006939E /* VHCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C03276C12302929A0006939E /* VHCore.framework */; };
-		C03276C6230292A10006939E /* VHCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C03276C12302929A0006939E /* VHCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C03276C7230292A10006939E /* VHIM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C03276C22302929A0006939E /* VHIM.framework */; };
 		C03276C8230292A10006939E /* VHIM.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C03276C22302929A0006939E /* VHIM.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C0CD25ED22E1DEB700162744 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C0CD25EC22E1DEB700162744 /* AppDelegate.m */; };
@@ -46,6 +47,8 @@
 		C0CD262522E1DF0C00162744 /* MBHUDHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C0CD261622E1DF0C00162744 /* MBHUDHelper.m */; };
 		C0CD262622E1DF0C00162744 /* VHStystemSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = C0CD261922E1DF0C00162744 /* VHStystemSetting.m */; };
 		C0CD262722E1DF0C00162744 /* VHBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0CD261B22E1DF0C00162744 /* VHBaseViewController.m */; };
+		C0F7D87A2313D1AD007215D8 /* UserListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0F7D8782313D1AD007215D8 /* UserListViewController.m */; };
+		C0F7D87B2313D1AD007215D8 /* UserListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0F7D8792313D1AD007215D8 /* UserListViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -56,7 +59,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				C03276C8230292A10006939E /* VHIM.framework in Embed Frameworks */,
-				C03276C6230292A10006939E /* VHCore.framework in Embed Frameworks */,
+				C00FABB3232654FB00028327 /* VHCore.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -134,6 +137,9 @@
 		C0CD261922E1DF0C00162744 /* VHStystemSetting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHStystemSetting.m; sourceTree = "<group>"; };
 		C0CD261B22E1DF0C00162744 /* VHBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VHBaseViewController.m; sourceTree = "<group>"; };
 		C0CD261C22E1DF0C00162744 /* VHBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VHBaseViewController.h; sourceTree = "<group>"; };
+		C0F7D8772313D1AD007215D8 /* UserListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserListViewController.h; sourceTree = "<group>"; };
+		C0F7D8782313D1AD007215D8 /* UserListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserListViewController.m; sourceTree = "<group>"; };
+		C0F7D8792313D1AD007215D8 /* UserListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserListViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,14 +147,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C03276C32302929A0006939E /* VHCore.framework in Frameworks */,
 				C03276C7230292A10006939E /* VHIM.framework in Frameworks */,
+				C00FABB1232654C000028327 /* VHCore.framework in Frameworks */,
+				C00FABB2232654FB00028327 /* VHCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C00FABB0232654C000028327 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C017B7BC22F173D900A103EC /* SDWebImage */ = {
 			isa = PBXGroup;
 			children = (
@@ -195,6 +209,9 @@
 				C017B7EF22F173F600A103EC /* IMViewController.h */,
 				C017B7F122F173F600A103EC /* IMViewController.m */,
 				C017B7F022F173F600A103EC /* IMViewController.xib */,
+				C0F7D8772313D1AD007215D8 /* UserListViewController.h */,
+				C0F7D8782313D1AD007215D8 /* UserListViewController.m */,
+				C0F7D8792313D1AD007215D8 /* UserListViewController.xib */,
 			);
 			path = IM;
 			sourceTree = "<group>";
@@ -214,6 +231,7 @@
 			children = (
 				C0CD25EA22E1DEB700162744 /* VHYunSDKDemo_IM */,
 				C0CD25E922E1DEB700162744 /* Products */,
+				C00FABB0232654C000028327 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -381,6 +399,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0CD261D22E1DF0C00162744 /* InitSDKViewController.xib in Resources */,
+				C0F7D87B2313D1AD007215D8 /* UserListViewController.xib in Resources */,
 				C0CD25F822E1DEC700162744 /* LaunchScreen.storyboard in Resources */,
 				C0CD25F522E1DEC700162744 /* Assets.xcassets in Resources */,
 				C017B7F222F173F600A103EC /* IMViewController.xib in Resources */,
@@ -405,6 +424,7 @@
 				C017B7E822F173D900A103EC /* SDImageCache.m in Sources */,
 				C017B7F322F173F600A103EC /* IMViewController.m in Sources */,
 				C0CD25FB22E1DEC700162744 /* main.m in Sources */,
+				C0F7D87A2313D1AD007215D8 /* UserListViewController.m in Sources */,
 				C017B7E122F173D900A103EC /* SDWebImageDecoder.m in Sources */,
 				C0CD261F22E1DF0C00162744 /* InitSDKViewController.m in Sources */,
 				C017B7E522F173D900A103EC /* UIImage+MultiFormat.m in Sources */,

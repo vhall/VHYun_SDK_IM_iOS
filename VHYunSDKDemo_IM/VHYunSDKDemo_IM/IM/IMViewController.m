@@ -9,16 +9,21 @@
 #import "IMViewController.h"
 #import <VHIM/VHImSDK.h>
 #import "UIImageView+WebCache.h"
+#import "UserListViewController.h"
 
 @interface IMViewController ()<VHImSDKDelegate>
 {
-    NSMutableArray *_msgArr;
+    
 }
 @property(nonatomic,strong)VHImSDK * chatSDK;
+@property(nonatomic,strong)NSMutableArray *msgArr;
 @property (weak, nonatomic) IBOutlet UITextField *msgTextField;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIButton *sendBtn;
 @property (weak, nonatomic) IBOutlet UITextField *imagemsgTextField;
+@property (weak, nonatomic) IBOutlet UILabel *chLabel;
+@property (weak, nonatomic) IBOutlet UISwitch *forbiddenAllSwitch;
+
 @end
 
 @implementation IMViewController
@@ -33,6 +38,11 @@
     _chatSDK.delegate = self;
     
     _tableView.rowHeight = 60;
+    
+    _chLabel.text = _channelID;
+    _tableView.tableFooterView = [[UIView alloc]init];
+    
+    [self loadHistoryMsg];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -79,7 +89,7 @@
     {
         __weak typeof(self) wf = self;
         [self showProgressDialog:_sendBtn];
-        [_chatSDK sendMessage:@[_imagemsgTextField.text] type:VHIMMessageTypeImage text:_msgTextField.text completed:^(NSError *error) {
+        [_chatSDK sendMessage:@[_imagemsgTextField.text] type:VHIMMessageTypeImage text:_msgTextField.text audit:YES completed:^(NSError *error) {
             [wf hideProgressDialog:wf.sendBtn];
             if(error)
                 [wf showMsg:[NSString stringWithFormat:@"%ld%@",error.code,error.domain] afterDelay:2];
@@ -89,7 +99,43 @@
     }
 }
 
+- (IBAction)forbiddenAll:(UISwitch*)sender {
+    [_chatSDK forbiddenAll:sender.on completed:^(NSError *error) {
+        NSLog(@"error:%@",error);
+    }];
+}
+//历史消息
+- (void)loadHistoryMsg
+{
+    NSDateFormatter *dateFormat=[[NSDateFormatter alloc]init];
+    [dateFormat setDateFormat:@"yyyy/MM/dd"];
+    NSString* endTime=[dateFormat stringFromDate:[NSDate date]];
+    
+    __weak typeof(self) wf = self;
+    [_chatSDK messageListWithPage:1 size:200 startTime:@"2019/08/12" endTime:endTime completed:^(id data, NSError *error) {
+        if(data)
+        {
+            for (NSDictionary *msg in data[@"list"]) {
+                VHMessage *message = [[VHMessage alloc]init];
+                message.service_type = MSG_Service_Type_IM;
+                message.data = @{MSG_Type:msg[MSG_Type],MSG_IM_Text_Content:msg[@"data"]};
+                message.nick_name = msg[@"nick_name"];
+                message.avatar = msg[@"avatar"];
+                message.date_time = msg[@"date_time"];
+                message.sender_id = msg[@"third_party_user_id"];
+                [wf.msgArr addObject:message];
+            }
+            [wf.tableView reloadData];
+        }
+    }];
+}
+- (IBAction)onineBtnClicked:(id)sender {
+    UserListViewController *vc = [[UserListViewController alloc]init];
+    vc.chatSDK = _chatSDK;
+    [self presentViewController:vc animated:YES completion:nil];
+}
 
+#pragma mark - UITableViewDelegate
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return _msgArr.count;
@@ -102,7 +148,7 @@
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:Identifier];
 
     VHMessage *message = _msgArr[indexPath.row];
-    NSString *str = [NSString stringWithFormat:@"[%@][%@]%@",message.nick_name?message.nick_name:@"",message.sender_id,message.date_time];
+    NSString *str = [NSString stringWithFormat:@"%@[id:%@]%@",message.nick_name?message.nick_name:@"",message.sender_id,message.date_time];
     cell.textLabel.text = str;
     cell.textLabel.adjustsFontSizeToFitWidth = YES;
     cell.textLabel.font = [UIFont systemFontOfSize:10];
@@ -112,7 +158,6 @@
             cell.detailTextLabel.text = [NSString stringWithFormat:@"%@",message.data[MSG_IM_Text_Content]];
         else if([message.data[MSG_Type] isEqualToString:MSG_IM_Type_Image])
         {
-            
             cell.detailTextLabel.text = [NSString stringWithFormat:@"%@,%@",message.data[MSG_IM_Text_Content],message.data[MSG_IM_Image_Urls]];
         }
         //其他情况可自行处理
@@ -154,9 +199,24 @@
  */
 - (void)imSDK:(VHImSDK *)imSDK receiveChatMessage:(VHMessage*)message
 {
-    [_msgArr insertObject:message atIndex:0];
-    [_tableView reloadData];
+    if([message.data[MSG_Type] isEqualToString:MSG_IM_Type_Text] || [message.data[MSG_Type] isEqualToString:MSG_IM_Type_Image] )
+    {
+        [_msgArr insertObject:message atIndex:0];
+        [_tableView reloadData];
+    }
+    else if([message.data[MSG_Type] isEqualToString:MSG_IM_Type_Disable] ||
+            [message.data[MSG_Type] isEqualToString:MSG_IM_Type_Permit]  ||
+            [message.data[MSG_Type] isEqualToString:MSG_IM_Type_Disable_All] ||
+            [message.data[MSG_Type] isEqualToString:MSG_IM_Type_Permit_All])//禁言消息刷新用户列表 包括自己被禁言消息和他人被禁言消息
+    {
+        UserListViewController *vc = (UserListViewController*)self.presentedViewController;
+        if([vc isKindOfClass:[UserListViewController class]])
+        {
+            [vc updateData];
+        }
+    }
 }
+
 /**
  *  上下线消息
  *  @param imSDK IM实例
@@ -166,6 +226,12 @@
 {
     [_msgArr insertObject:message atIndex:0];
     [_tableView reloadData];
+    
+    UserListViewController *vc = (UserListViewController*)self.presentedViewController;
+    if([vc isKindOfClass:[UserListViewController class]])
+    {
+        [vc updateData];
+    }
 }
 
 /**
@@ -178,7 +244,27 @@
     [_msgArr insertObject:message atIndex:0];
     [_tableView reloadData];
 }
-
+- (void)imSDK:(VHImSDK *)imSDK forbidden:(BOOL)forbidden forbiddenAll:(BOOL)forbiddenAll
+{
+    if(forbidden||forbiddenAll)
+    {
+        _msgTextField.text =  @"";
+        _msgTextField.placeholder = @"您已被禁言~";
+        _msgTextField.enabled = NO;
+        _imagemsgTextField.enabled = NO;
+        _sendBtn.enabled = NO;
+        [self.view endEditing:YES];
+    }
+    else
+    {
+        _sendBtn.enabled = YES;
+        _msgTextField.placeholder = @"来聊天吧~";
+        _msgTextField.enabled = YES;
+        _imagemsgTextField.enabled = YES;
+    }
+    
+    _forbiddenAllSwitch.on = forbiddenAll;
+}
 /**
  *  错误回调
  *  @param imSDK IM实例
