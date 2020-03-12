@@ -6,9 +6,12 @@
 //  Copyright © 2019 vhall. All rights reserved.
 //
 
-#define iPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
-#define iPhoneXR            ([UIScreen instancesRespondToSelector:@selector(currentMode)]?CGSizeEqualToSize(CGSizeMake(828, 1792),[[UIScreen mainScreen] currentMode].size):NO)
-#define iPhoneXSMAX         ([UIScreen instancesRespondToSelector:@selector(currentMode)]?CGSizeEqualToSize(CGSizeMake(1242, 2688),[[UIScreen mainScreen] currentMode].size):NO)
+#define iPhoneX \
+({BOOL isPhoneX = NO;\
+if ([[[UIDevice currentDevice] systemVersion] floatValue]>=11.0) {\
+isPhoneX = [[UIApplication sharedApplication] delegate].window.safeAreaInsets.bottom > 0.0;\
+}\
+(isPhoneX);})
 
 #import "ViewController+vhall.h"
 #import "InitSDKViewController.h"
@@ -26,6 +29,7 @@ dispatch_source_t _timer_g;
     if(![VHLiveBase isInited])
     {
         InitSDKViewController *vc = [[InitSDKViewController alloc]init];
+        vc.modalPresentationStyle = UIModalPresentationFullScreen;
         [self presentViewController:vc animated:NO completion:nil];
         [self showProcessInfo];
     }
@@ -96,7 +100,7 @@ dispatch_source_t _timer_g;
     float h = 0;
     UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
     if (orientation == UIInterfaceOrientationPortrait || orientation == UIInterfaceOrientationPortraitUpsideDown) {
-        h = (iPhoneX ||iPhoneXR||iPhoneXSMAX)? 25 : 10;
+        h = (iPhoneX)? 25 : 10;
     }
     
     netInfoLabel.top = h;

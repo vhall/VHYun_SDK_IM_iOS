@@ -56,6 +56,7 @@
     IMViewController * vc = [[IMViewController alloc] init];
     vc.channelID    = DEMO_Setting.imChannelID;
     vc.accessToken  = DEMO_Setting.accessToken;
+    vc.modalPresentationStyle = UIModalPresentationFullScreen;
     [self presentViewController:vc animated:YES completion:nil];
 }
 

@@ -10,6 +10,7 @@
 #import <VHIM/VHImSDK.h>
 #import "UIImageView+WebCache.h"
 #import "UserListViewController.h"
+#import "ChangeUserInfoViewController.h"
 
 @interface IMViewController ()<VHImSDKDelegate>
 {
@@ -112,13 +113,13 @@
     NSString* endTime=[dateFormat stringFromDate:[NSDate date]];
     
     __weak typeof(self) wf = self;
-    [_chatSDK messageListWithPage:1 size:200 startTime:@"2019/08/12" endTime:endTime completed:^(id data, NSError *error) {
+    [_chatSDK messageListWithPage:1 size:200 startTime:@"2020/03/01" endTime:endTime completed:^(id data, NSError *error) {
         if(data)
         {
             for (NSDictionary *msg in data[@"list"]) {
                 VHMessage *message = [[VHMessage alloc]init];
                 message.service_type = MSG_Service_Type_IM;
-                message.data = @{MSG_Type:msg[MSG_Type],MSG_IM_Text_Content:msg[@"data"]};
+                message.data = @{MSG_Type:msg[MSG_Type],MSG_IM_Text_Content:msg[@"data"],MSG_IM_Image_Urls:msg[@"image_urls"]?msg[@"image_urls"]:@[]};
                 message.nick_name = msg[@"nick_name"];
                 message.avatar = msg[@"avatar"];
                 message.date_time = msg[@"date_time"];
@@ -132,8 +133,16 @@
 - (IBAction)onineBtnClicked:(id)sender {
     UserListViewController *vc = [[UserListViewController alloc]init];
     vc.chatSDK = _chatSDK;
+    vc.modalPresentationStyle = UIModalPresentationFullScreen;
     [self presentViewController:vc animated:YES completion:nil];
 }
+
+- (IBAction)userBtnClicked:(id)sender {
+    ChangeUserInfoViewController *vc = [[ChangeUserInfoViewController alloc]init];
+//    vc.modalPresentationStyle = UIModalPresentationFullScreen;
+    [self presentViewController:vc animated:YES completion:nil];
+}
+
 
 #pragma mark - UITableViewDelegate
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

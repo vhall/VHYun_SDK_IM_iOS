@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C00FABB1232654C000028327 /* VHCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C03276C12302929A0006939E /* VHCore.framework */; };
-		C00FABB2232654FB00028327 /* VHCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C03276C12302929A0006939E /* VHCore.framework */; };
-		C00FABB3232654FB00028327 /* VHCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C03276C12302929A0006939E /* VHCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C017B7DE22F173D900A103EC /* UIImage+WebP.m in Sources */ = {isa = PBXBuildFile; fileRef = C017B7BD22F173D900A103EC /* UIImage+WebP.m */; };
 		C017B7DF22F173D900A103EC /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = C017B7BE22F173D900A103EC /* MKAnnotationView+WebCache.m */; };
 		C017B7E022F173D900A103EC /* SDWebImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C017B7C122F173D900A103EC /* SDWebImageManager.m */; };
@@ -28,8 +25,8 @@
 		C017B7ED22F173D900A103EC /* UIButton+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = C017B7DC22F173D900A103EC /* UIButton+WebCache.m */; };
 		C017B7F222F173F600A103EC /* IMViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C017B7F022F173F600A103EC /* IMViewController.xib */; };
 		C017B7F322F173F600A103EC /* IMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C017B7F122F173F600A103EC /* IMViewController.m */; };
-		C03276C7230292A10006939E /* VHIM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C03276C22302929A0006939E /* VHIM.framework */; };
-		C03276C8230292A10006939E /* VHIM.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C03276C22302929A0006939E /* VHIM.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C04F66B82411E7CC002F506C /* ChangeUserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C04F66B62411E7CC002F506C /* ChangeUserInfoViewController.m */; };
+		C04F66B92411E7CC002F506C /* ChangeUserInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C04F66B72411E7CC002F506C /* ChangeUserInfoViewController.xib */; };
 		C0CD25ED22E1DEB700162744 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C0CD25EC22E1DEB700162744 /* AppDelegate.m */; };
 		C0CD25F022E1DEB700162744 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0CD25EF22E1DEB700162744 /* ViewController.m */; };
 		C0CD25F322E1DEB700162744 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0CD25F122E1DEB700162744 /* Main.storyboard */; };
@@ -58,8 +55,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				C03276C8230292A10006939E /* VHIM.framework in Embed Frameworks */,
-				C00FABB3232654FB00028327 /* VHCore.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -104,8 +99,9 @@
 		C017B7F022F173F600A103EC /* IMViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IMViewController.xib; sourceTree = "<group>"; };
 		C017B7F122F173F600A103EC /* IMViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMViewController.m; sourceTree = "<group>"; };
 		C017BA8422F28D3800A103EC /* CONSTS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CONSTS.h; sourceTree = "<group>"; };
-		C03276C12302929A0006939E /* VHCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = VHCore.framework; sourceTree = "<group>"; };
-		C03276C22302929A0006939E /* VHIM.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = VHIM.framework; sourceTree = "<group>"; };
+		C04F66B52411E7CC002F506C /* ChangeUserInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangeUserInfoViewController.h; sourceTree = "<group>"; };
+		C04F66B62411E7CC002F506C /* ChangeUserInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangeUserInfoViewController.m; sourceTree = "<group>"; };
+		C04F66B72411E7CC002F506C /* ChangeUserInfoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChangeUserInfoViewController.xib; sourceTree = "<group>"; };
 		C0CD25E822E1DEB700162744 /* VHYunSDKDemo_IM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VHYunSDKDemo_IM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0CD25EB22E1DEB700162744 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C0CD25EC22E1DEB700162744 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -147,22 +143,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C03276C7230292A10006939E /* VHIM.framework in Frameworks */,
-				C00FABB1232654C000028327 /* VHCore.framework in Frameworks */,
-				C00FABB2232654FB00028327 /* VHCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C00FABB0232654C000028327 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		C017B7BC22F173D900A103EC /* SDWebImage */ = {
 			isa = PBXGroup;
 			children = (
@@ -212,18 +198,11 @@
 				C0F7D8772313D1AD007215D8 /* UserListViewController.h */,
 				C0F7D8782313D1AD007215D8 /* UserListViewController.m */,
 				C0F7D8792313D1AD007215D8 /* UserListViewController.xib */,
+				C04F66B52411E7CC002F506C /* ChangeUserInfoViewController.h */,
+				C04F66B62411E7CC002F506C /* ChangeUserInfoViewController.m */,
+				C04F66B72411E7CC002F506C /* ChangeUserInfoViewController.xib */,
 			);
 			path = IM;
-			sourceTree = "<group>";
-		};
-		C03276C02302929A0006939E /* VHYunFrameworks */ = {
-			isa = PBXGroup;
-			children = (
-				C03276C12302929A0006939E /* VHCore.framework */,
-				C03276C22302929A0006939E /* VHIM.framework */,
-			);
-			name = VHYunFrameworks;
-			path = ../../VHYunFrameworks;
 			sourceTree = "<group>";
 		};
 		C0CD25DF22E1DEB600162744 = {
@@ -231,7 +210,6 @@
 			children = (
 				C0CD25EA22E1DEB700162744 /* VHYunSDKDemo_IM */,
 				C0CD25E922E1DEB700162744 /* Products */,
-				C00FABB0232654C000028327 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -246,7 +224,6 @@
 		C0CD25EA22E1DEB700162744 /* VHYunSDKDemo_IM */ = {
 			isa = PBXGroup;
 			children = (
-				C03276C02302929A0006939E /* VHYunFrameworks */,
 				C017BA8422F28D3800A103EC /* CONSTS.h */,
 				C0CD25EB22E1DEB700162744 /* AppDelegate.h */,
 				C0CD25EC22E1DEB700162744 /* AppDelegate.m */,
@@ -351,6 +328,7 @@
 				C0CD25E522E1DEB700162744 /* Frameworks */,
 				C0CD25E622E1DEB700162744 /* Resources */,
 				C0CD263122E1DF4000162744 /* Embed Frameworks */,
+				C04F66BA2411F074002F506C /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -404,10 +382,31 @@
 				C0CD25F522E1DEC700162744 /* Assets.xcassets in Resources */,
 				C017B7F222F173F600A103EC /* IMViewController.xib in Resources */,
 				C0CD25F322E1DEB700162744 /* Main.storyboard in Resources */,
+				C04F66B92411E7CC002F506C /* ChangeUserInfoViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C04F66BA2411F074002F506C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nAPP_PATH=\"${TARGET_BUILD_DIR}/${WRAPPER_NAME}\"\n\n# This script loops through the frameworks embedded in the application and\n# removes unused architectures.\nfind \"$APP_PATH\" -name '*.framework' -type d | while read -r FRAMEWORK\ndo\nFRAMEWORK_EXECUTABLE_NAME=$(defaults read \"$FRAMEWORK/Info.plist\" CFBundleExecutable)\nFRAMEWORK_EXECUTABLE_PATH=\"$FRAMEWORK/$FRAMEWORK_EXECUTABLE_NAME\"\necho \"Executable is $FRAMEWORK_EXECUTABLE_PATH\"\n\nEXTRACTED_ARCHS=()\n\nfor ARCH in $ARCHS\ndo\necho \"Extracting $ARCH from $FRAMEWORK_EXECUTABLE_NAME\"\nlipo -extract \"$ARCH\" \"$FRAMEWORK_EXECUTABLE_PATH\" -o \"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\"\nEXTRACTED_ARCHS+=(\"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\")\ndone\n\necho \"Merging extracted architectures: ${ARCHS}\"\nlipo -o \"$FRAMEWORK_EXECUTABLE_PATH-merged\" -create \"${EXTRACTED_ARCHS[@]}\"\nrm \"${EXTRACTED_ARCHS[@]}\"\n\necho \"Replacing original executable with thinned version\"\nrm \"$FRAMEWORK_EXECUTABLE_PATH\"\nmv \"$FRAMEWORK_EXECUTABLE_PATH-merged\" \"$FRAMEWORK_EXECUTABLE_PATH\"\n\ndone\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C0CD25E422E1DEB700162744 /* Sources */ = {
@@ -423,6 +422,7 @@
 				C0CD25F022E1DEB700162744 /* ViewController.m in Sources */,
 				C017B7E822F173D900A103EC /* SDImageCache.m in Sources */,
 				C017B7F322F173F600A103EC /* IMViewController.m in Sources */,
+				C04F66B82411E7CC002F506C /* ChangeUserInfoViewController.m in Sources */,
 				C0CD25FB22E1DEC700162744 /* main.m in Sources */,
 				C0F7D87A2313D1AD007215D8 /* UserListViewController.m in Sources */,
 				C017B7E122F173D900A103EC /* SDWebImageDecoder.m in Sources */,
@@ -589,7 +589,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = H49DK955B9;
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../VHYunFrameworks";
+				FRAMEWORK_SEARCH_PATHS = "";
 				INFOPLIST_FILE = VHYunSDKDemo_IM/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -610,7 +610,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = H49DK955B9;
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../VHYunFrameworks";
+				FRAMEWORK_SEARCH_PATHS = "";
 				INFOPLIST_FILE = VHYunSDKDemo_IM/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
