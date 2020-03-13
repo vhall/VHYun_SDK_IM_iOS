@@ -4,6 +4,13 @@
 
 集成和调用方式，参见官方文档：http://www.vhallyun.com/docs/show/309.html <br>
 
+### SDK 两种引入方式
+1、pod 'VHYun_IM','~> 2.1.0'<br>
+有时pod设置路径失效，请手动设置Frameworks路径 <br>
+   "${PODS_ROOT}/VHCore/VHYunFrameworks" <br>
+   "${PODS_ROOT}/VHYun_IM/VHYunFrameworks"<br>
+2、手动下载拖入工程设置路径、Embed&Sign<br>
+注意依赖 https://github.com/vhall/VHYun_SDK_Core_iOS.git VHCore库<br>
 
 ### APP工程集成SDK基本设置
 1、关闭bitcode 设置<br>
