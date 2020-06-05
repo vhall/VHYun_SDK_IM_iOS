@@ -63,21 +63,32 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iJL-E5-fD3">
                     <rect key="frame" x="20" y="200" width="374" height="34"/>
                     <color key="backgroundColor" red="0.91764705879999997" green="0.1764705882" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <state key="normal" title="更  新"/>
+                    <state key="normal" title="登  录"/>
                     <connections>
-                        <action selector="updateBtnClicked:" destination="-1" eventType="touchUpInside" id="lhI-gc-o0P"/>
+                        <action selector="loginBtnClicked:" destination="-1" eventType="touchUpInside" id="Pkv-8t-a6n"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SLV-O1-ms0">
+                    <rect key="frame" x="20" y="249" width="374" height="34"/>
+                    <color key="backgroundColor" red="0.91764705879999997" green="0.1764705882" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" title="更新昵称头像"/>
+                    <connections>
+                        <action selector="updateBtnClicked:" destination="-1" eventType="touchUpInside" id="g5K-GT-mOu"/>
                     </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="0.87058823529999996" green="0.87058823529999996" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="SLV-O1-ms0" secondAttribute="trailing" constant="20" id="0OR-op-kK0"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="Ebp-jW-Tf2" secondAttribute="trailing" constant="20" id="0mp-xn-GWJ"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="RG1-S1-qTD" secondAttribute="trailing" constant="20" id="19n-yu-cy4"/>
                 <constraint firstItem="oDI-Pp-vza" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="6e6-8s-ZgD"/>
                 <constraint firstItem="nlL-DE-dz7" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="22" id="6n9-tk-WOk"/>
+                <constraint firstItem="SLV-O1-ms0" firstAttribute="top" secondItem="iJL-E5-fD3" secondAttribute="bottom" constant="15" id="9Zz-uC-OrC"/>
                 <constraint firstItem="8qH-rV-umc" firstAttribute="centerY" secondItem="nlL-DE-dz7" secondAttribute="centerY" id="AUA-Yp-ILZ"/>
                 <constraint firstItem="nlL-DE-dz7" firstAttribute="top" secondItem="oDI-Pp-vza" secondAttribute="bottom" constant="25" id="AjC-Ix-qJh"/>
                 <constraint firstItem="ZDh-tU-CVe" firstAttribute="top" secondItem="nlL-DE-dz7" secondAttribute="bottom" constant="25" id="J8g-eT-ajg"/>
+                <constraint firstItem="SLV-O1-ms0" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="Klm-Cx-Cbu"/>
                 <constraint firstItem="iJL-E5-fD3" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="LpN-NV-3DJ"/>
                 <constraint firstItem="iJL-E5-fD3" firstAttribute="top" secondItem="Ebp-jW-Tf2" secondAttribute="bottom" constant="4" id="VOn-7L-cAD"/>
                 <constraint firstItem="RG1-S1-qTD" firstAttribute="centerY" secondItem="oDI-Pp-vza" secondAttribute="centerY" id="XON-Cx-PQb"/>

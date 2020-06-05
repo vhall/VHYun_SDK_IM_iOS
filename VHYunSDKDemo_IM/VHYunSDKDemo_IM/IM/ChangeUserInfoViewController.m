@@ -36,7 +36,8 @@
     // Pass the selected object to the new view controller.
 }
 */
-- (IBAction)updateBtnClicked:(id)sender {
+
+- (IBAction)loginBtnClicked:(id)sender {
     DEMO_Setting.third_party_user_id =_userIDTextField.text;
     if(DEMO_Setting.third_party_user_id.length<=0)
     {
@@ -46,6 +47,14 @@
     DEMO_Setting.nickName = _nicknameTextField.text?_nicknameTextField.text:@"";
     DEMO_Setting.avatar   = _avatarTextField.text?_avatarTextField.text:@"";
     [VHLiveBase setThirdPartyUserId:DEMO_Setting.third_party_user_id context:@{@"nick_name":DEMO_Setting.nickName,@"avatar":DEMO_Setting.avatar}];
+
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)updateBtnClicked:(id)sender {
+    DEMO_Setting.nickName = _nicknameTextField.text?_nicknameTextField.text:@"";
+    DEMO_Setting.avatar   = _avatarTextField.text?_avatarTextField.text:@"";
+    [VHLiveBase setThirdPartyUserContext:@{@"nick_name":DEMO_Setting.nickName,@"avatar":DEMO_Setting.avatar}];
 
     [self dismissViewControllerAnimated:YES completion:nil];
 }

@@ -89,15 +89,31 @@
     if(_imagemsgTextField.text.length > 0 )
     {
         __weak typeof(self) wf = self;
-        [self showProgressDialog:_sendBtn];
+        [self showProgressDialog:self.view];
         [_chatSDK sendMessage:@[_imagemsgTextField.text] type:VHIMMessageTypeImage text:_msgTextField.text audit:YES completed:^(NSError *error) {
-            [wf hideProgressDialog:wf.sendBtn];
+            [wf hideProgressDialog:wf.view];
             if(error)
                 [wf showMsg:[NSString stringWithFormat:@"%ld%@",error.code,error.domain] afterDelay:2];
             else
                 [wf showMsg:@"发送成功" afterDelay:2];
         }];
     }
+}
+
+- (IBAction)sendCustomBtnClicked:(id)sender {
+    [[UIApplication sharedApplication].keyWindow endEditing:YES];
+    
+    NSString *customMessage = @"{\"key\":\"value\",\"key1\":0.12,\"key2\":1,\"key3\":\"汉语\"}";
+
+    __weak typeof(self) wf = self;
+    [self showProgressDialog:self.view];
+    [_chatSDK sendCustomMessage:customMessage  completed:^(NSError *error) {
+        [wf hideProgressDialog:wf.view];
+        if(error)
+            [wf showMsg:[NSString stringWithFormat:@"%ld%@",error.code,error.domain] afterDelay:2];
+        else
+            [wf showMsg:@"发送成功" afterDelay:2];
+    }];
 }
 
 - (IBAction)forbiddenAll:(UISwitch*)sender {
@@ -156,6 +172,12 @@
     if (cell == nil)
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:Identifier];
 
+    for (int i = 0; i < cell.subviews.count; i++) {
+        UIView *imageView = [cell.contentView viewWithTag:1000+i];
+        if(imageView)
+            [imageView removeFromSuperview];
+    }
+    
     VHMessage *message = _msgArr[indexPath.row];
     NSString *str = [NSString stringWithFormat:@"%@[id:%@]%@",message.nick_name?message.nick_name:@"",message.sender_id,message.date_time];
     cell.textLabel.text = str;
@@ -168,6 +190,19 @@
         else if([message.data[MSG_Type] isEqualToString:MSG_IM_Type_Image])
         {
             cell.detailTextLabel.text = [NSString stringWithFormat:@"%@,%@",message.data[MSG_IM_Text_Content],message.data[MSG_IM_Image_Urls]];
+            
+            NSArray* arr = message.data[MSG_IM_Image_Urls];
+            for (int i = 0; i<arr.count; i++) {
+                UIImageView *imageView = [cell.contentView viewWithTag:1000+i];
+                if(!imageView)
+                    imageView = [[UIImageView alloc] initWithFrame:CGRectMake(80, 20, 40, 40)];
+                imageView.frame = CGRectMake(95+i*42, 17, 40, 40);
+                imageView.tag = 1000+i;
+                imageView.layer.borderColor = [UIColor greenColor].CGColor;
+                imageView.layer.borderWidth = 0.5;
+                [imageView sd_setImageWithURL:[NSURL URLWithString:arr[i]]];
+                [cell.contentView addSubview:imageView];
+            }
         }
         //其他情况可自行处理
     }

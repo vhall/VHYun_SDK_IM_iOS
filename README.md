@@ -5,8 +5,8 @@
 集成和调用方式，参见官方文档：http://www.vhallyun.com/docs/show/309.html <br>
 
 ### SDK 两种引入方式
-1、pod 'VHYun_IM','~> 2.1.0'<br>
-有时pod设置路径失效，请手动设置Frameworks路径 <br>
+1、pod 'VHYun_IM'<br>
+检查库路径是否设置成功，没有请手动设置Frameworks路径 <br>
    "${PODS_ROOT}/VHCore/VHYunFrameworks" <br>
    "${PODS_ROOT}/VHYun_IM/VHYunFrameworks"<br>
 2、手动下载拖入工程设置路径、Embed&Sign<br>
@@ -20,6 +20,10 @@
 
 
 ### 版本更新信息
+#### 版本 v2.1.1 更新时间：2020.06.05
+更新内容：<br>
+1、新增发送自定义消息接口<br>
+
 #### 版本 v2.1.0 更新时间：2020.03.12
 更新内容：<br>
 1、支持中途修改昵称等信息<br>

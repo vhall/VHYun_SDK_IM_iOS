@@ -45,6 +45,13 @@ typedef NS_ENUM(NSInteger, VHIMMessageType) {
 - (void)sendMessage:(id)message type:(VHIMMessageType)type text:(NSString*)text  audit:(BOOL)audit completed:(void (^)(NSError *error))completed;
 
 /**
+ * 发送自定义消息
+ * @param message 自定义消息
+ * 自定义消息有频率限制，每个聊天通道最大发送频率为1000条每分钟，注意不是每个客户端
+ */
+- (void)sendCustomMessage:(NSString*)message completed:(void (^)(NSError *error))completed;
+
+/**
  * 禁言/取消禁言
  * @param isForbidden YES 禁言、NO 取消禁言
  * @param targetId   操作的 第三方ID third_party_user_id
