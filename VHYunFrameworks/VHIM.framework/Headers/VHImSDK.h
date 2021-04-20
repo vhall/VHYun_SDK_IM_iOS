@@ -42,11 +42,21 @@ typedef NS_ENUM(NSInteger, VHIMMessageType) {
  * @param text   IM文本消息 最长200字
  * @param audit  是否需要AI审核 默认 YES 需要审核
  */
-- (void)sendMessage:(id)message type:(VHIMMessageType)type text:(NSString*)text  audit:(BOOL)audit completed:(void (^)(NSError *error))completed;
+- (void)sendMessage:(id)message type:(VHIMMessageType)type text:(NSString*)text audit:(BOOL)audit completed:(void (^)(NSError *error))completed;
+
+/**
+ * 发送图片、连接等消息
+ * @param message IM图片等消息 VHIMMessageTypeImage时传入 NSArray 内部为 图片URL 字符串， VHIMMessageTypeLink连接传入 URL 字符串，
+ * @param type   IM消息类型 VHIMMessageType
+ * @param text   IM文本消息 最长200字
+ * @param audit  是否需要AI审核 默认 YES 需要审核
+ * @param context  context 可以通过 [VHLiveBase getContext] 获取当前用户全局 context  后追加新参数 此接口不会修改 用户全局 context
+ */
+- (void)sendMessage:(id)message type:(VHIMMessageType)type text:(NSString*)text audit:(BOOL)audit context:(NSDictionary*)context completed:(void (^)(NSError *error))completed;
 
 /**
  * 发送自定义消息
- * @param message 自定义消息
+ * @param message 自定义消息`
  * 自定义消息有频率限制，每个聊天通道最大发送频率为1000条每分钟，注意不是每个客户端
  */
 - (void)sendCustomMessage:(NSString*)message completed:(void (^)(NSError *error))completed;
@@ -130,19 +140,34 @@ typedef NS_ENUM(NSInteger, VHIMMessageType) {
 - (void)imSDK:(VHImSDK *)imSDK receiveRoomMessage:(VHMessage*)message;
 
 /**
+ *  错误回调
+ *  @param imSDK IM实例
+ *  @param error    错误
+ */
+- (void)imSDK:(VHImSDK *)imSDK error:(NSError *)error;
+
+/**
+ *  接收IM消息：当前用户是否被禁言
+ *  @param imSDK IM实例
+ *  @param forbidden    YES:禁言  NO:取消禁言
+ */
+- (void)imSDK:(VHImSDK *)imSDK forbidden:(BOOL)forbidden;
+
+/**
+ *  接收IM消息：当前频道是否被全体禁言
+ *  @param imSDK IM实例
+ *  @param forbiddenAll    YES:禁言  NO:取消禁言
+ */
+- (void)imSDK:(VHImSDK *)imSDK forbiddenAll:(BOOL)forbiddenAll;
+
+/**
  *  接收IM消息
  *  @param imSDK IM实例
  *  @param forbidden    当前用户被禁言
  *  @param forbiddenAll 当前频道被全体禁言
  */
-- (void)imSDK:(VHImSDK *)imSDK forbidden:(BOOL)forbidden forbiddenAll:(BOOL)forbiddenAll;
+- (void)imSDK:(VHImSDK *)imSDK forbidden:(BOOL)forbidden forbiddenAll:(BOOL)forbiddenAll  DEPRECATED_MSG_ATTRIBUTE("2.1.1及以下版本使用，以上版本建议使用-imSDK:forbidden 和 -imSDK:forbiddenAll代替");
 
-/**
- *  错误回调
- *  @param imSDK IM实例
- *  @param error    错误o
- */
-- (void)imSDK:(VHImSDK *)imSDK error:(NSError *)error;
 
 #pragma mark - 兼容v1.8.0 之前版本消息回调 请尽快升级到新的回调接口
 /**
