@@ -7,6 +7,7 @@
 //
 
 #import "IMViewController.h"
+#import <VHCore/VHLiveBase.h>
 #import <VHIM/VHImSDK.h>
 #import "UIImageView+WebCache.h"
 #import "UserListViewController.h"
@@ -90,7 +91,7 @@
     {
         __weak typeof(self) wf = self;
         [self showProgressDialog:self.view];
-        [_chatSDK sendMessage:@[_imagemsgTextField.text] type:VHIMMessageTypeImage text:_msgTextField.text audit:YES completed:^(NSError *error) {
+        [_chatSDK sendMessage:@[_imagemsgTextField.text] type:VHIMMessageTypeImage text:_msgTextField.text audit:YES context:[VHLiveBase getContext] completed:^(NSError *error) {
             [wf hideProgressDialog:wf.view];
             if(error)
                 [wf showMsg:[NSString stringWithFormat:@"%ld%@",error.code,error.domain] afterDelay:2];
@@ -288,12 +289,33 @@
     [_msgArr insertObject:message atIndex:0];
     [_tableView reloadData];
 }
-- (void)imSDK:(VHImSDK *)imSDK forbidden:(BOOL)forbidden forbiddenAll:(BOOL)forbiddenAll
+
+- (void)imSDK:(VHImSDK *)imSDK forbidden:(BOOL)forbidden
 {
-    if(forbidden||forbiddenAll)
+    if(imSDK.forbiddenAll || imSDK.forbidden)
     {
         _msgTextField.text =  @"";
-        _msgTextField.placeholder = @"您已被禁言~";
+        _msgTextField.placeholder = imSDK.forbiddenAll?@"全体禁言":@"您已被禁言~";
+        _msgTextField.enabled = NO;
+        _imagemsgTextField.enabled = NO;
+        _sendBtn.enabled = NO;
+        [self.view endEditing:YES];
+    }
+    else
+    {
+        _sendBtn.enabled = YES;
+        _msgTextField.placeholder = @"来聊天吧~";
+        _msgTextField.enabled = YES;
+        _imagemsgTextField.enabled = YES;
+    }
+}
+
+- (void)imSDK:(VHImSDK *)imSDK forbiddenAll:(BOOL)forbiddenAll
+{
+    if(imSDK.forbiddenAll || imSDK.forbidden)
+    {
+        _msgTextField.text =  @"";
+        _msgTextField.placeholder = imSDK.forbiddenAll?@"全体禁言":@"您已被禁言~";
         _msgTextField.enabled = NO;
         _imagemsgTextField.enabled = NO;
         _sendBtn.enabled = NO;

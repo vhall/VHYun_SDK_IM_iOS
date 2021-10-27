@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -24,7 +24,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nFe-NO-QoE">
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="来聊天吧~" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nFe-NO-QoE">
                     <rect key="frame" x="40" y="40" width="261" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="DZ7-2T-pAH"/>
@@ -81,7 +81,7 @@
                         <action selector="sendImageBtnClicked:" destination="-1" eventType="touchUpInside" id="ySE-Ov-qa3"/>
                     </connections>
                 </button>
-                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PKM-Ir-J5i">
+                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="PKM-Ir-J5i">
                     <rect key="frame" x="308" y="9" width="51" height="31"/>
                     <connections>
                         <action selector="forbiddenAll:" destination="-1" eventType="valueChanged" id="uMg-iD-Hjc"/>
@@ -94,7 +94,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ch_" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SZc-2Q-nbf">
-                    <rect key="frame" x="40" y="16.5" width="21" height="16"/>
+                    <rect key="frame" x="40" y="16.5" width="22.5" height="16"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -110,11 +110,11 @@
                         <action selector="onineBtnClicked:" destination="-1" eventType="touchUpInside" id="Baa-Hf-FIu"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f2T-jc-v9A">
-                    <rect key="frame" x="310" y="155" width="50" height="29"/>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f2T-jc-v9A">
+                    <rect key="frame" x="288" y="155" width="72" height="29"/>
                     <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <state key="normal" title="user">
+                    <state key="normal" title="userInfo">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <connections>
@@ -133,6 +133,7 @@
                     </connections>
                 </button>
             </subviews>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
             <color key="backgroundColor" red="0.8862745098" green="0.90980392160000001" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="SZc-2Q-nbf" firstAttribute="leading" secondItem="nFe-NO-QoE" secondAttribute="leading" id="1Xc-cg-mIB"/>
@@ -157,7 +158,6 @@
                 <constraint firstItem="nFe-NO-QoE" firstAttribute="top" secondItem="rN2-Of-jMC" secondAttribute="top" id="agW-Sr-3EF"/>
                 <constraint firstItem="cp9-Va-Ian" firstAttribute="top" secondItem="f2T-jc-v9A" secondAttribute="bottom" constant="7" id="buW-kK-MsV"/>
                 <constraint firstItem="j0Q-2Y-R8Z" firstAttribute="centerY" secondItem="PKM-Ir-J5i" secondAttribute="centerY" id="cpE-o6-Q6J"/>
-                <constraint firstItem="f2T-jc-v9A" firstAttribute="width" secondItem="xEd-MK-pZR" secondAttribute="width" id="d7p-y1-njy"/>
                 <constraint firstItem="wKu-oa-0I1" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" id="gtu-Fv-72n"/>
                 <constraint firstItem="wKu-oa-0I1" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="j6x-MM-liW"/>
                 <constraint firstItem="f2T-jc-v9A" firstAttribute="top" secondItem="xEd-MK-pZR" secondAttribute="bottom" constant="8" id="kUX-uv-G8y"/>
@@ -167,7 +167,6 @@
                 <constraint firstItem="xEd-MK-pZR" firstAttribute="centerX" secondItem="4aF-Lm-jZe" secondAttribute="centerX" id="xlT-ar-Xr9"/>
                 <constraint firstItem="MzM-pf-fFw" firstAttribute="leading" secondItem="nFe-NO-QoE" secondAttribute="leading" id="zd2-1t-5O5"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
             <point key="canvasLocation" x="26.399999999999999" y="50.824587706146929"/>
         </view>
     </objects>
