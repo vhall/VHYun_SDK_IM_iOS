@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name            = "VHYun_IM"
-  s.version         = "2.3.1"
+  s.version         = "2.3.2"
   s.author          = { "wangxiaoxiang" => "xiaoxiang.wang@vhall.com" }
   s.license         = { :type => "MIT", :file => "LICENSE" }
   s.homepage        = 'https://www.vhall.com'
@@ -20,5 +20,5 @@ Pod::Spec.new do |s|
     'VALID_ARCHS' => 'x86_64 i386 armv7 arm64'
   }
 
-  s.dependency 'VHCore','>=2.2.1'
+  s.dependency 'VHCore','>=2.2.2'
 end
