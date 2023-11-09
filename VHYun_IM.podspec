@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name            = "VHYun_IM"
-  s.version         = "2.3.2"
-  s.author          = { "wangxiaoxiang" => "xiaoxiang.wang@vhall.com" }
+  s.version         = "2.3.3"
+  s.author          = { "chao.guo" => "chao.guo@vhall.com" }
   s.license         = { :type => "MIT", :file => "LICENSE" }
   s.homepage        = 'https://www.vhall.com'
   s.source          = { :git => "https://github.com/vhall/VHYun_SDK_IM_iOS.git", :tag => s.version.to_s}
@@ -20,5 +20,5 @@ Pod::Spec.new do |s|
     'VALID_ARCHS' => 'x86_64 i386 armv7 arm64'
   }
 
-  s.dependency 'VHCore','>=2.2.2'
+  s.dependency 'VHCore','>=2.3.5'
 end
