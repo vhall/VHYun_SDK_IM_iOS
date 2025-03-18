@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "VHMessage.h"
+#import <VHCore/VHMessage.h>
 
 @protocol VHImSDKDelegate;
 
