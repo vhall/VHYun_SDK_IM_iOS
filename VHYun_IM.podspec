@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.homepage        = 'https://www.vhall.com'
   s.source          = { :git => "https://github.com/vhall/VHYun_SDK_IM_iOS.git", :tag => s.version.to_s}
   s.summary         = "iOS IM framework"
-  s.platform        = :ios, '8.0'
+  s.platform        = :ios, '9.0'
   s.requires_arc    = true
   #s.source_files    = ''
   s.frameworks      = 'Foundation'
